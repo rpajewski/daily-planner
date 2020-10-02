@@ -1,8 +1,3 @@
-// load saved tasks
-function loadTasks() {
-
-};
-
 // save tasks
 $('.saveBtn').click(function() {
     // get task value and time
@@ -11,6 +6,8 @@ $('.saveBtn').click(function() {
 
     // save to local storage
     localStorage.setItem(time, value);
+
+    hourClass();
 });
 
 // display current time on page
@@ -53,6 +50,22 @@ setInterval(function(){
     displayDate();
 }, 60000);
 
+// load saved tasks
+function loadTasks() {
+    $('#09am #value').val(localStorage.getItem('09am'));
+    $('#10am #value').val(localStorage.getItem('10am'));
+    $('#11am #value').val(localStorage.getItem('11am'));
+    $('#12pm #value').val(localStorage.getItem('12pm'));
+    $('#13pm #value').val(localStorage.getItem('13pm'));
+    $('#14pm #value').val(localStorage.getItem('14pm'));
+    $('#15pm #value').val(localStorage.getItem('15pm'));
+    $('#16pm #value').val(localStorage.getItem('16pm'));
+    $('#17pm #value').val(localStorage.getItem('17pm'));
+};
+
+
 hourClass();
 
 displayDate();
+
+loadTasks();
