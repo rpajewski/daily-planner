@@ -4,9 +4,14 @@ function loadTasks() {
 };
 
 // save tasks
-function saveTasks() {
+$('.saveBtn').click(function() {
+    // get task value and time
+    var value = $(this).siblings('#value').val();
+    var time = $(this).parent().attr('id');
 
-};
+    // save to local storage
+    localStorage.setItem(time, value);
+});
 
 // display current time on page
 function displayDate() { 
@@ -40,7 +45,13 @@ function hourClass() {
     });
 };
 
-
+// update interval
+setInterval(function(){ 
+    // reclass time blocks if needed
+    hourClass();
+    // display date if changed
+    displayDate();
+}, 60000);
 
 hourClass();
 
