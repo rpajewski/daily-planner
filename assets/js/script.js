@@ -1,3 +1,13 @@
+// load saved tasks
+function loadTasks() {
+
+};
+
+// save tasks
+function saveTasks() {
+
+};
+
 // display current time on page
 function displayDate() { 
     $('#currentDay').text(moment().format('dddd, MMMM Do'));
@@ -11,20 +21,26 @@ function hourClass() {
     // loop over hours add classes accordling
     $('.time-block').each(function() {
         var hourBlock = parseInt($(this).attr('id'));
+        // console.log(hourBlock);
         // past
         if (hourBlock < currentHour) {
             $(this).addClass('past');
         }
         // current
         else if (hourBlock === currentHour) {
+            $(this).removeClass('past');
             $(this).addClass('present');
         }
         // future
         else {
+            $(this).removeClass('past');
+            $(this).removeClass('present');
             $(this).addClass('future');
         }
     });
 };
+
+
 
 hourClass();
 
